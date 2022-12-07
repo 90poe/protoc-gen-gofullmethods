@@ -1,8 +1,8 @@
-# protoc-gen-gofullmethods
+# Description
 
-This protoc plugin is intended as an extension of the [protoc-gen-go-grpc plugin](https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc), exposing the full methods for each gRPC endpoint as string constants. Its original intent is to use these methods/paths for authorization purposes in a custom middleware function in the transport layer.
+This `protoc-gen-gofullmethods` plugin is intended as an extension of the [protoc-gen-go-grpc plugin](https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc), exposing the full methods for each gRPC endpoint as string constants. Its original intent is to use these methods/paths for authorization purposes in a custom middleware function in the transport layer, on the gRPC server. This plugin is not intended for use with clients.
 
-The `example` directory uses the sample pet API from buf to generate example output of this plugin, using the locally generated binary. Run `make update-example` to regenerate it.
+The `example` directory uses the sample pet API from buf to generate example output of this plugin, using the locally compiled executable. Run `make update-example` to regenerate it.
 
 ## Requirements
 
