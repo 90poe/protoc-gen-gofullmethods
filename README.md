@@ -1,10 +1,18 @@
 # protoc-gen-gofullmethods
 
-protoc plugin for accessing the protoc-gen-go-grpc methods / URL paths
+This protoc plugin is intended as an extension of the [protoc-gen-go-grpc plugin](https://pkg.go.dev/google.golang.org/grpc/cmd/protoc-gen-go-grpc), exposing the full methods for each gRPC endpoint as string constants. Its original intent is to use these methods/paths for authorization purposes in a custom middleware function in the transport layer.
+
+The `example` directory uses the sample pet API from buf to generate example output of this plugin, using the locally generated binary. Run `make update-example` to regenerate it.
 
 ## Requirements
 
-- [golang](https://golang.org/) v1.16+
+- [golang](https://golang.org/) v1.19+
+
+## Other plugin dependencies
+
+As per `go.mod`:
+
+- google.golang.org/protobuf:v1.27.0
 
 ## Installing
 

@@ -1,7 +1,5 @@
 include linting.mk
 
-export GO111MODULE=on
-
 .PHONY: ci
 ci: build test lint
 
@@ -24,8 +22,18 @@ verify:
 
 .PHONY: build
 build: test lint
-	go build ./...
+	go build -o bin/protoc-gen-gofullmethods main.go
 
 .PHONY: unit-test
 unit-test:
 	go test -coverpkg=./... -coverprofile=unit_coverage.out ./...
+
+.PHONY: update-example
+update-example: clean-example download-example-proto build	
+	buf generate
+
+clean-example:
+	rm -rf example/idl/*
+
+download-example-proto:
+	buf export --output example/idl "https://github.com/bufbuild/buf-tour.git#branch=main,subdir=start/petapis"
