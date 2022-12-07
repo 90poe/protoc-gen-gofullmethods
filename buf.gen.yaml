@@ -1,0 +1,11 @@
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/90poe/protoc-gen-gofullmethods/pet
+plugins:
+  - name: protoc-gen-gofullmethods
+    path: bin/protoc-gen-gofullmethods
+    out: example/gen/go
+    opt:
+      - paths=source_relative
